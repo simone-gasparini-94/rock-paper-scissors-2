@@ -4,7 +4,7 @@ let computerScore = 0;
 
 function getUserChoice() {
     let answer = prompt("your choice:");
-    userChoice = answer.toUpperCase();
+    let userChoice = answer.toUpperCase();
     if(userChoice !== "ROCK" && userChoice !== "PAPER" && userChoice !== "SCISSORS") {
         console.log("wrong input");
         getUserChoice();
