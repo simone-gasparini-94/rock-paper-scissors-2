@@ -1,4 +1,5 @@
 let computerChoice;
+let humanChoice;
 
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3) + 1;
@@ -12,4 +13,13 @@ function getComputerChoice() {
     console.log(computerChoice);
 }
 
+
+
+function getHumanChoice() {
+    let answer = prompt("YOUR CHOICE:");
+    humanChoice = answer.toUpperCase();
+    console.log(humanChoice);
+}
+
 getComputerChoice();
+getHumanChoice();
