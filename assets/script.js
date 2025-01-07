@@ -1,5 +1,13 @@
 let computerChoice;
-let humanChoice;
+let userChoice;
+
+function getUserChoice() {
+    let answer = prompt("your choice:");
+    userChoice = answer.toUpperCase();
+    console.log("your choice:")
+    console.log(userChoice);
+    getComputerChoice();
+}
 
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3) + 1;
@@ -10,16 +18,9 @@ function getComputerChoice() {
     } else {
         computerChoice = "SCISSORS";
     };
+    console.log("computer choice:")
     console.log(computerChoice);
 }
 
+getUserChoice();
 
-
-function getHumanChoice() {
-    let answer = prompt("YOUR CHOICE:");
-    humanChoice = answer.toUpperCase();
-    console.log(humanChoice);
-}
-
-getComputerChoice();
-getHumanChoice();
