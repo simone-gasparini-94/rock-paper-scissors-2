@@ -1,9 +1,6 @@
-
 let userScore = 0;
 let computerScore = 0;
 
-let userChoice;
-let computerChoice;
 
 function getUserChoice() {
     let answer = prompt("your choice:");
@@ -51,8 +48,8 @@ function playRound(userChoice, computerChoice) {
 
 function playGame() {
     for (i = 0; i < 5; i++) {
-        getUserChoice();
-        getComputerChoice();
+        const userChoice = getUserChoice();
+        const computerChoice = getComputerChoice();
         playRound(userChoice, computerChoice);
     }
 }
