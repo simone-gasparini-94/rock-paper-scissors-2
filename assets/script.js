@@ -1,10 +1,13 @@
+
 let userScore = 0;
 let computerScore = 0;
 
+let userChoice;
+let computerChoice;
 
 function getUserChoice() {
     let answer = prompt("your choice:");
-    let userChoice = answer.toUpperCase();
+    userChoice = answer.toUpperCase();
     if(userChoice !== "ROCK" && userChoice !== "PAPER" && userChoice !== "SCISSORS") {
         console.log("wrong input");
         getUserChoice();
@@ -17,7 +20,7 @@ function getUserChoice() {
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3) + 1;
     if(randomNumber === 1) {
-        let computerChoice = "ROCK";
+        computerChoice = "ROCK";
     } else if(randomNumber === 2) {
         computerChoice = "PAPER";
     } else {
@@ -47,9 +50,11 @@ function playRound(userChoice, computerChoice) {
 }
 
 function playGame() {
-    getUserChoice();
-    getComputerChoice();
-    playRound();
+    for (i = 0; i < 5; i++) {
+        getUserChoice();
+        getComputerChoice();
+        playRound(userChoice, computerChoice);
+    }
 }
 
 playGame();
