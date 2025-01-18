@@ -1,18 +1,11 @@
+const container = document.querySelector(".container");
+const rockBtn = document.querySelector("#rock");
+const paperBtn = document.querySelector("#paper");
+const scissorsBtn = document.querySelector("#scissors");
+
+
 let userScore = 0;
 let computerScore = 0;
-
-
-function getUserChoice() {
-    let answer = prompt("your choice:");
-    let userChoice = answer.toUpperCase();
-    if(userChoice !== "ROCK" && userChoice !== "PAPER" && userChoice !== "SCISSORS") {
-        console.log("wrong input");
-        getUserChoice();
-    } else {
-    console.log(`user choice: ${userChoice}`);
-    return userChoice;
-    }
-}
 
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3) + 1;
@@ -27,7 +20,7 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-function playRound(userChoice, computerChoice) {
+function compare(userChoice, computerChoice) {
     if (userChoice === computerChoice) {
         console.log("DRAW");
     } else if (userChoice === "ROCK" && computerChoice === "SCISSORS"
@@ -46,12 +39,23 @@ function playRound(userChoice, computerChoice) {
     console.log(`COMPUTER SCORE: ${computerScore}`)
 }
 
-function playGame() {
-        const userChoice = getUserChoice();
-        const computerChoice = getComputerChoice();
-        playRound(userChoice, computerChoice);
+
+function play(event) {
+    let userChoice;
+    let computerChoice;
+    if(event.target === rockBtn) {
+        console.log("user choice: ROCK");
+        userChoice = "ROCK";
+    } else if(event.target === paperBtn) {
+        console.log("user choice: PAPER");
+        userChoice = "PAPER"
+    } else if(event.target === scissorsBtn) {
+        console.log("user choice: SCISSORS");
+        userChoice = "SCISSORS";
+    }
+    computerChoice = getComputerChoice();
+    compare(userChoice, computerChoice);
 }
 
-playGame();
-
+container.addEventListener("click", play);
 
