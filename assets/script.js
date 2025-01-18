@@ -3,9 +3,10 @@ const rockBtn = document.querySelector("#rock");
 const paperBtn = document.querySelector("#paper");
 const scissorsBtn = document.querySelector("#scissors");
 
-
-let userScore = 0;
-let computerScore = 0;
+const game = {
+    userScore: 0,
+    computerScore: 0,
+}
 
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3) + 1;
@@ -29,20 +30,19 @@ function compare(userChoice, computerChoice) {
                 ||
                 userChoice === "SCISSORS" && computerChoice === "PAPER"
                 ) {
-                    ++userScore;
+                    ++game.userScore;
                     console.log("WIN");
                 } else {
-                    ++computerScore;
+                    ++game.computerScore;
                     console.log("LOSS");
                 }
-    console.log(`USER SCORE: ${userScore}`)
-    console.log(`COMPUTER SCORE: ${computerScore}`)
+    console.log(`USER SCORE: ${game.userScore}`)
+    console.log(`COMPUTER SCORE: ${game.computerScore}`)
 }
 
 
 function play(event) {
     let userChoice;
-    let computerChoice;
     if(event.target === rockBtn) {
         console.log("user choice: ROCK");
         userChoice = "ROCK";
@@ -53,7 +53,7 @@ function play(event) {
         console.log("user choice: SCISSORS");
         userChoice = "SCISSORS";
     }
-    computerChoice = getComputerChoice();
+    const computerChoice = getComputerChoice();
     compare(userChoice, computerChoice);
 }
 
