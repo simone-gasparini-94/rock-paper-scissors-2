@@ -4,6 +4,7 @@ const paperBtn = document.querySelector("#paper");
 const scissorsBtn = document.querySelector("#scissors");
 const userChoicePara = document.querySelector("#user-choice-para");
 const computerChoicePara = document.querySelector("#computer-choice-para");
+const winLosePara = document.querySelector("#win-lose-para")
 const userScorePara = document.querySelector("#user-score-para");
 const computerScorePara = document.querySelector("#computer-score-para");
 
@@ -27,8 +28,9 @@ function getComputerChoice() {
 }
 
 function compare(userChoice, computerChoice) {
+    let winLose;
     if (userChoice === computerChoice) {
-        console.log("DRAW");
+        winLose = "DRAW";
     } else if (userChoice === "ROCK" && computerChoice === "SCISSORS"
                 ||
                 userChoice === "PAPER" && computerChoice === "ROCK"
@@ -36,13 +38,14 @@ function compare(userChoice, computerChoice) {
                 userChoice === "SCISSORS" && computerChoice === "PAPER"
                 ) {
                     ++game.userScore;
-                    console.log("WIN");
+                    winLose = "WIN";
                 } else {
                     ++game.computerScore;
-                    console.log("LOSS");
+                    winLose = "LOSS";
                 }
-    console.log(`USER SCORE: ${game.userScore}`)
-    console.log(`COMPUTER SCORE: ${game.computerScore}`)
+    winLosePara.textContent = winLose;
+    userScorePara.textContent = `USER SCORE: ${game.userScore}`;
+    computerScorePara.textContent = `COMPUTER SCORE: ${game.computerScore}`;
 }
 
 
