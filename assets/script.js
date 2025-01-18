@@ -1,7 +1,12 @@
-const container = document.querySelector(".container");
+const buttonContainer = document.querySelector(".button-container");
 const rockBtn = document.querySelector("#rock");
 const paperBtn = document.querySelector("#paper");
 const scissorsBtn = document.querySelector("#scissors");
+const userChoicePara = document.querySelector("#user-choice-para");
+const computerChoicePara = document.querySelector("#computer-choice-para");
+const userScorePara = document.querySelector("#user-score-para");
+const computerScorePara = document.querySelector("#computer-score-para");
+
 
 const game = {
     userScore: 0,
@@ -17,7 +22,7 @@ function getComputerChoice() {
     } else {
         computerChoice = "SCISSORS";
     };
-    console.log(`computer choice: ${computerChoice}`)
+    computerChoicePara.textContent = `COMPUTER CHOICE: ${computerChoice}`
     return computerChoice;
 }
 
@@ -44,18 +49,16 @@ function compare(userChoice, computerChoice) {
 function play(event) {
     let userChoice;
     if(event.target === rockBtn) {
-        console.log("user choice: ROCK");
         userChoice = "ROCK";
     } else if(event.target === paperBtn) {
-        console.log("user choice: PAPER");
         userChoice = "PAPER"
     } else if(event.target === scissorsBtn) {
-        console.log("user choice: SCISSORS");
         userChoice = "SCISSORS";
     }
+    userChoicePara.textContent = `USER CHOICE: ${userChoice}`;
     const computerChoice = getComputerChoice();
     compare(userChoice, computerChoice);
 }
 
-container.addEventListener("click", play);
+buttonContainer.addEventListener("click", play);
 
