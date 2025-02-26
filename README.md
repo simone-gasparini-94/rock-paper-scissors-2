@@ -1,2 +1,3 @@
 # rock-paper-scissors-2
-Redoing the rock paper scissors game as an exercise and to see my improvements
+
+A Rock Paper Scissors game built with JavaScript to practice user input handling, logic and DOM manipulation.
